@@ -40,4 +40,14 @@ app.use(function (err, req, res, next) {
 app.locals.ticketNumbers = new Set();
 app.locals.flightData = {};
 
+app.locals.ticket = {
+    "event": {
+        "ticketId": 1,
+        "flightDate": "2021-11-01",
+        "flightNumber": "AC1",
+        "seatNumber": "1A",
+        "ticketCost": 100000
+    }
+}
+
 module.exports = app;
