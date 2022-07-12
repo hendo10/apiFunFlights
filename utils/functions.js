@@ -7,18 +7,12 @@ const {
 } = require("./constants");
 
 function dateIsValid(date) {
-  // console.log('date: ', typeof date+" "+date.length+" "+date)
-  // console.log('instance: ', new Date(date));
-  // console.log('split: ', date.split("-").length !== 3)
-  // console.log('total chars: ', date.length !== 10)
   return new Date(date) instanceof Date && date.split("-").length === 3 && date.length === 10;
 }
 
 // handle error conditions if query parameters are invalid
 exports.validateQuery = () => {
   return (req, res, next) => {
-    // console.log('start:', req.query['startDate'], 'end: ', req.query['endDate'], dateIsValid(req.query['startDate']))
-    // for (const _ of fields) {
       if (!req.query['startDate']) {
         return res
           .status(400)
@@ -59,7 +53,6 @@ exports.validateQuery = () => {
             "reason": ENDDATE_BEFORE_STARTDATE_ERROR
           })
       }
-    // }
     next();
   }
 }
